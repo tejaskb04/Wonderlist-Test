@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wonderlist.LoginActivity">
+    tools:context="com.example.wonderlist.SplashActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
