@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wonderlist.LoginActivity">
+    tools:context="com.example.wonderlist.RegisterActivity">
 
     <LinearLayout
         android:layout_centerHorizontal="true"
@@ -31,15 +31,15 @@
             android:layout_margin="16dp" />
 
         <Button
-            android:id="@+id/login"
-            android:text="Login"
+            android:id="@+id/register"
+            android:text="Register!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp" />
 
         <TextView
             android:id="@+id/route"
-            android:text="Don't Have an Account? Sign-up Here"
+            android:text="Aleady Registered? Sign-in Here"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center" />
