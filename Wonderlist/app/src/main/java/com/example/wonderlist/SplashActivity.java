@@ -1,6 +1,7 @@
 package com.example.wonderlist;
 
 import android.content.Intent;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,6 @@ import java.util.Random;
 public class SplashActivity extends AppCompatActivity {
 
     private LinearLayout linearLayout;
-    private Button route;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +30,12 @@ public class SplashActivity extends AppCompatActivity {
         else {
             linearLayout.setBackgroundResource(R.drawable.background_3);
         }
-        route = (Button) findViewById(R.id.route);
-        route.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            }
-        });
+
+        Button goHome = (Button) findViewById(R.id.buttonHome);
+    }
+
+    public void onClick(View view){
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
     }
 }

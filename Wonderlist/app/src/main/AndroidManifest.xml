@@ -19,8 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page"></activity>
     </application>
 
 </manifest>

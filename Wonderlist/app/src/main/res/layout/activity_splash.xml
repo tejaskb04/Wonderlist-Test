@@ -9,18 +9,18 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/route"
-            android:text="Login"
+            android:id="@+id/buttonHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:onClick="onClick"
+            android:text="Button" />
     </LinearLayout>
 
 </RelativeLayout>
