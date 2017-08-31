@@ -17,12 +17,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage extends AppCompatActivity implements createCatDialog.Communicator {
+public class HomePage extends AppCompatActivity implements createCatDialog.Communicator, DeleteWarningDialog.ItemCommunicator {
 
     List categories = new ArrayList();
-    ArrayAdapter adapter;
+    CatAdapter adapter;
     ListView listView;
     createCatDialog dialog;
+    DeleteWarningDialog deleteDialog;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -54,9 +55,8 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
         listView = (ListView) findViewById(R.id.cat_list);
 
 
-        adapter = new ArrayAdapter(HomePage.this, android.R.layout.simple_list_item_1, categories);
+        adapter = new CatAdapter(categories, HomePage.this);
         listView.setAdapter(adapter);
-
 
     }
 
@@ -70,7 +70,15 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
 
     @Override
     public void addCategory(String newTitle) {
+
         categories.add(newTitle);
-        listView.setAdapter(adapter);
     }
+
+    @Override
+    public void removeCategory(boolean b, int position) {
+        if (b){
+            categories.remove(position);
+        }
+    }
+
 }

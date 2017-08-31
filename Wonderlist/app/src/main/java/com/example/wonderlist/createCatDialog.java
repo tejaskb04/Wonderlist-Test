@@ -49,6 +49,6 @@ public class createCatDialog extends DialogFragment implements View.OnClickListe
     }
 
     interface Communicator{
-        public void addCategory(String newTitle);
+        void addCategory(String newTitle);
     }
 }
