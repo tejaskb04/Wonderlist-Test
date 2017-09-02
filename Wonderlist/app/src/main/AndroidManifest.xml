@@ -21,6 +21,7 @@
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".HomePage"/>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".CategoryMainActivity"/>
     </application>
 
 </manifest>

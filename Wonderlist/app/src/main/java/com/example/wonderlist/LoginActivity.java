@@ -35,11 +35,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        // EDGY CODE BELOW
-        /*if (firebaseAuth.getCurrentUser() != null) {
+        if (firebaseAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(LoginActivity.this, UserAreaActivity.class));
-        }*/
+            startActivity(new Intent(LoginActivity.this, HomePage.class));
+        }
         progressDialog = new ProgressDialog(LoginActivity.this);
         loginBtn = (Button) findViewById(R.id.login);
         editTextEmail = (EditText) findViewById(R.id.email);

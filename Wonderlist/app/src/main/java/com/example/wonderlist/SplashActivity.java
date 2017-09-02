@@ -8,15 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Random;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private FirebaseAuth firebaseAuth;
     private LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        firebaseAuth = FirebaseAuth.getInstance();
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         Random r = new Random();
         int backgroundNumber = r.nextInt(3) + 1;
@@ -35,7 +39,13 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        if (firebaseAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(SplashActivity.this, HomePage.class));
+        }
+        else {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        }
     }
 }

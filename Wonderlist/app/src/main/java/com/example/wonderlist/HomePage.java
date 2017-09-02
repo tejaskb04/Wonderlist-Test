@@ -1,5 +1,8 @@
 package com.example.wonderlist;
 
+import android.app.ActionBar;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListViewCompat;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,6 +37,8 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     InputStream catList;
     FileWriter write;
 
+    private ActionBar actionBar;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,6 +52,8 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
                     return true;
                 case R.id.navigation_search:
                     return true;
+                case R.id.navigation_settings:
+                    return true;
             }
             return false;
         }
@@ -56,7 +64,6 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
