@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.IOException;
+
 public class createCatDialog extends DialogFragment implements View.OnClickListener{
     Button cancel, setNew;
     EditText edit;
@@ -42,13 +44,17 @@ public class createCatDialog extends DialogFragment implements View.OnClickListe
         }
         else {
             String title = edit.getText().toString();
-            communicator.addCategory(title);
+            try {
+                communicator.addCategory(title);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             dismiss();
 
         }
     }
 
     interface Communicator{
-        void addCategory(String newTitle);
+        void addCategory(String newTitle) throws IOException;
     }
 }

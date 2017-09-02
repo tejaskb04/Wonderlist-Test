@@ -14,16 +14,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
+import java.io.FileWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage extends AppCompatActivity implements createCatDialog.Communicator, DeleteWarningDialog.ItemCommunicator {
+public class HomePage extends AppCompatActivity implements createCatDialog.Communicator, DeleteWarningDialog.ItemCommunicator, EditCatDialog.itemEditor {
 
     List categories = new ArrayList();
     CatAdapter adapter;
     ListView listView;
     createCatDialog dialog;
-    DeleteWarningDialog deleteDialog;
+    Scanner scan;
+    InputStream catList;
+    FileWriter write;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -54,6 +62,24 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
 
         listView = (ListView) findViewById(R.id.cat_list);
 
+        //read categories in from file
+        try {
+            catList = getApplicationContext().getAssets().open("categories");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            write = new FileWriter(this.getFileStreamPath("categories"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scan = new Scanner(catList);
+        while (scan.hasNextLine()){
+            String line = scan.nextLine();
+            categories.add(line);
+        }
+
 
         adapter = new CatAdapter(categories, HomePage.this);
         listView.setAdapter(adapter);
@@ -69,16 +95,22 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     }
 
     @Override
-    public void addCategory(String newTitle) {
-
+    public void addCategory(String newTitle) throws IOException {
         categories.add(newTitle);
+        write.append(newTitle);
     }
 
     @Override
     public void removeCategory(boolean b, int position) {
         if (b){
             categories.remove(position);
+            adapter.notifyDataSetChanged();
         }
     }
 
+    @Override
+    public void changeItem(int pos, String newName) {
+        categories.set(pos, newName);
+        adapter.notifyDataSetChanged();
+    }
 }

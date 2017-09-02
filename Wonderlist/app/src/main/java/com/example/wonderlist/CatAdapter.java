@@ -31,10 +31,15 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
     int position;
     DeleteWarningDialog dialog;
+    EditCatDialog dialogEdit;
+    FragmentActivity activity;
+    FragmentManager manager;
 
     public CatAdapter(List list, Context c){
         categories = list;
         context = c;
+        activity = (FragmentActivity) context;
+        manager = activity.getFragmentManager();
     }
 
     @Override
@@ -70,8 +75,6 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
         deleteCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentActivity activity = (FragmentActivity) context;
-                FragmentManager manager = activity.getFragmentManager();
                 dialog = new DeleteWarningDialog();
                 dialog.position = i;
                 dialog.show(manager, "DeleteDialog");
@@ -83,7 +86,9 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
 
             @Override
             public void onClick(View view) {
-                //open editing dialog
+                dialogEdit = new EditCatDialog();
+                dialogEdit.currentName = categories.get(position).toString();
+                dialogEdit.show(manager, "EditDialog");
             }
         });
 
@@ -97,4 +102,5 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
 
     return v;
     }
+
 }
