@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Registered Successfully",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
-                                startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                startActivity(new Intent(RegisterActivity.this, HomePage.class));
                             } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(RegisterActivity.this, "Failed to Register",

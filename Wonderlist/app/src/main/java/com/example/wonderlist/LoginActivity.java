@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                                 databaseReference.child("users").child(userId).setValue(user);
                                 progressDialog.dismiss();
                                 finish();
-                                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                startActivity(new Intent(LoginActivity.this, HomePage.class));
                             } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(LoginActivity.this, "Login Failed",
