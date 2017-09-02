@@ -48,20 +48,23 @@ public class ItemAdapter extends BaseAdapter implements ListAdapter {
 
         ImageButton mapView = (ImageButton) v.findViewById(R.id.map_btn);
         ImageButton galView = (ImageButton) v.findViewById(R.id.gal_btn);
+
+        //code to set dynamic image for galView and mapView
+
         mapView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //text to open map
+                //code to open map
             }
         });
         galView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //code to open gallery
 
             }
         });
 
-        //code to set dynamic image for galView and mapView
         TextView title = (TextView) v.findViewById(R.id.catTitle);
         title.setText(items.get(i).toString());
         return v;

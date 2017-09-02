@@ -39,7 +39,6 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     InputStream catList;
     FileWriter write;
 
-    private ActionBar actionBar;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
