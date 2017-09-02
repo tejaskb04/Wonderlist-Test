@@ -1,8 +1,10 @@
 package com.example.wonderlist;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.audiofx.BassBoost;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -53,6 +55,7 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
                 case R.id.navigation_search:
                     return true;
                 case R.id.navigation_settings:
+                    startActivity(new Intent(HomePage.this, SettingsActivity.class));
                     return true;
             }
             return false;
