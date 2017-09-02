@@ -1,0 +1,8 @@
+TODO:
+
+// UI Changes for SplashActivity, RegisterActivity, LoginActivity
+// Save data for each user
+// Create settings page
+// Set background image as map
+// Set background image for gallery and implement logic
+// Create MapActivity
