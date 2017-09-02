@@ -9,6 +9,7 @@
     <string name="title_new">NEW CATEGORY</string>
     <string name="title_cancel">Cancel</string>
     <string name="title_ok">OK</string>
+    <string name="title_addItem">New Item</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
