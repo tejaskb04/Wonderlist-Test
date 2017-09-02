@@ -97,7 +97,7 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     @Override
     public void addCategory(String newTitle) throws IOException {
         categories.add(newTitle);
-        write.append(newTitle);
+        updateCatFile(categories);
     }
 
     @Override
@@ -105,6 +105,7 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
         if (b){
             categories.remove(position);
             adapter.notifyDataSetChanged();
+            updateCatFile(categories);
         }
     }
 
@@ -112,5 +113,16 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     public void changeItem(int pos, String newName) {
         categories.set(pos, newName);
         adapter.notifyDataSetChanged();
+        updateCatFile(categories);
+    }
+
+    public void updateCatFile(List cats) {
+        try {
+            for(int i = 0; i < cats.size(); i++) {
+                write.write(cats.get(i).toString());
+            }
+            } catch (IOException e) {
+                e.printStackTrace();
+        }
     }
 }
