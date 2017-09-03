@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.ContextMenu;
@@ -96,7 +97,10 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
 
             @Override
             public void onClick(View view) {
-                //open new activity specific to that category
+                Intent intent = new Intent(activity, CategoryMainActivity.class);
+                activity.startActivity(intent);
+                activity.startActivity(intent);
+
             }
         });
 
