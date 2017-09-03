@@ -99,6 +99,7 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(activity, CategoryMainActivity.class);
                 activity.startActivity(intent);
+                activity.startActivity(intent);
 
             }
         });
