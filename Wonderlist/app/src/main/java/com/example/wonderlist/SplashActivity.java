@@ -16,6 +16,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private LinearLayout linearLayout;
+    private Button dashboardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,13 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         Button goHome = (Button) findViewById(R.id.buttonHome);
+        dashboardBtn = (Button) findViewById(R.id.dashboard);
+        dashboardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SplashActivity.this, HomePage.class));
+            }
+        });
     }
 
     public void onClick(View view) {

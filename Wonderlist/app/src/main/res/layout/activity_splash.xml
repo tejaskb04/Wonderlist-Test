@@ -21,6 +21,11 @@
             android:layout_centerVertical="true"
             android:onClick="onClick"
             android:text="Button" />
+        <Button
+            android:id="@+id/dashboard"
+            android:text="Dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </RelativeLayout>
