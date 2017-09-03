@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
         Button goHome = (Button) findViewById(R.id.buttonHome);
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(SplashActivity.this, HomePage.class));
