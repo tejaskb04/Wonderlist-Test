@@ -22,6 +22,11 @@ public class ItemAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
     int position;
 
+    public ItemAdapter(List list, Context context){
+        items = list;
+        this.context = context;
+    }
+
     @Override
     public int getCount() {
         return items.size();

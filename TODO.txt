@@ -8,7 +8,7 @@ TODO:
 // Create MapActivity
 
 // BUGS:
-// "New Category" doesn't work
-// Editing Category doesn't work
+FIXED// "New Category" doesn't work
+FIXED// Editing Category doesn't work
 // New Item doesn't work
 

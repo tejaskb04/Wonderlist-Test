@@ -106,6 +106,7 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     @Override
     public void addCategory(String newTitle) throws IOException {
         categories.add(newTitle);
+        adapter.notifyDataSetChanged();
         updateCatFile(categories);
     }
 

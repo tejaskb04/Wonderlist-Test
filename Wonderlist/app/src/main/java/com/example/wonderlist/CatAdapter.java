@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.FileDescriptor;
@@ -29,6 +30,7 @@ import java.util.List;
 
 public class CatAdapter extends BaseAdapter implements ListAdapter {
     private List categories = new ArrayList();
+    View v;
     private Context context;
     int position;
     DeleteWarningDialog dialog;
@@ -60,8 +62,8 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
 
     @Override
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        View v = view;
-        position = i;
+        v = view;
+
         if (view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inflater.inflate(R.layout.list_item_layout, null);
@@ -88,9 +90,11 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View view) {
                 dialogEdit = new EditCatDialog();
-                dialogEdit.currentName = categories.get(position).toString();
+                dialogEdit.currentName = categories.get(i).toString();
+                dialogEdit.pos = i;
                 dialogEdit.show(manager, "EditDialog");
             }
+
         });
 
         listItem.setOnClickListener(new View.OnClickListener(){
@@ -98,6 +102,7 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, CategoryMainActivity.class);
+                intent.putExtra("Category title", categories.get(i).toString());
                 activity.startActivity(intent);
 
             }
