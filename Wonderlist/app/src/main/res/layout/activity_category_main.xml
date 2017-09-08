@@ -18,17 +18,23 @@
             android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.16"
-            android:text="TextView" />
+            android:text="TextView"
+            android:gravity="center_horizontal|center_vertical"/>
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="299dp"
             android:layout_weight="0.78">
 
-            <ListView
+            <GridView
                 android:id="@+id/item_list"
-                android:layout_width="wrap_content"
-                android:layout_height="405dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.16"
+                android:numColumns="auto_fit"
+                android:padding="20dp"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"/>
 
         </FrameLayout>
 

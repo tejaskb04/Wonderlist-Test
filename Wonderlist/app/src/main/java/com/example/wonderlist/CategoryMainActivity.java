@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +34,13 @@ public class CategoryMainActivity extends AppCompatActivity {
 
         items.add("Tokyo");
         items.add("London");
-        ListView listItem = (ListView) findViewById(R.id.item_list);
+        items.add("Buenos Aires");
+        items.add("Paris");
+        items.add("New York City");
+        items.add("Seattle");
+        items.add("Miami");
+        items.add("St. Petersburg");
+        GridView listItem = (GridView) findViewById(R.id.item_list);
         adapter = new ItemAdapter(items, this);
         listItem.setAdapter(adapter);
         TextView title = (TextView) findViewById(R.id.catTitle);
