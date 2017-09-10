@@ -1,6 +1,8 @@
 package com.example.wonderlist;
 
 import android.app.DialogFragment;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -37,6 +39,8 @@ public class ItemDialog extends DialogFragment implements View.OnClickListener {
     public void onClick(View view) {
         if(view.getId()==R.id.map_btn){
             //start map activity
+            startActivity(new Intent(getActivity(), MapActivity.class));
+
         }
         else {
             //start gallery activity

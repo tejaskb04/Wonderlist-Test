@@ -71,10 +71,13 @@ public class CategoryMainActivity extends AppCompatActivity {
     protected  void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
+                System.out.println("hi");
                 Place place = PlaceAutocomplete.getPlace(CategoryMainActivity.this, data);
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(CategoryMainActivity.this, data);
+                System.out.println(status);
             } else if (resultCode == RESULT_CANCELED) {
+                //System.out.println("hi");
                 // Do Nothing
             }
         }
