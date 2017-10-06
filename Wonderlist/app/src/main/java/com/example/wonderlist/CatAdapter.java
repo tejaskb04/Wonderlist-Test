@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.ContextMenu;
@@ -32,13 +33,13 @@ import java.util.List;
 
 public class CatAdapter extends BaseAdapter implements ListAdapter {
     private List categories = new ArrayList();
-    View v;
+    private View v;
     private Context context;
-    int position;
-    DeleteWarningDialog dialog;
-    EditCatDialog dialogEdit;
-    FragmentActivity activity;
-    FragmentManager manager;
+    private int position;
+    private DeleteWarningDialog dialog;
+    private EditCatDialog dialogEdit;
+    private FragmentActivity activity;
+    private FragmentManager manager;
 
     public CatAdapter(List list, Context c){
         categories = list;
@@ -73,6 +74,8 @@ public class CatAdapter extends BaseAdapter implements ListAdapter {
 
         final TextView listItem = (TextView) v.findViewById(R.id.list_item_string);
         listItem.setText(categories.get(i).toString());
+        Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/JosefinSans-Regular.ttf");
+        listItem.setTypeface(tf);
 
         ImageButton editName = (ImageButton) v.findViewById(R.id.edit_btn);
         ImageButton deleteCat = (ImageButton) v.findViewById(R.id.delete_btn);

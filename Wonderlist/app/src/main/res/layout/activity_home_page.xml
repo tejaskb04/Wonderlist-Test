@@ -2,18 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/linearContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorAccent"
     tools:context="com.example.wonderlist.HomePage">
 
     <Button
         android:id="@+id/newCatButton"
-        android:layout_width="match_parent"
+        android:layout_width="276dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_button"
         android:onClick="createCategory"
-        android:text="@string/title_new" />
+        android:text="@string/title_new"
+        android:textSize="20dp" />
 
     <FrameLayout
         android:id="@+id/content"
@@ -25,6 +30,7 @@
             android:id="@+id/cat_list"
             android:layout_width="wrap_content"
             android:layout_height="453dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="11.75" />
     </FrameLayout>
 

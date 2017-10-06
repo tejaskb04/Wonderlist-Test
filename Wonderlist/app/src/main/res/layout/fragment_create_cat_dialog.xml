@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.wonderlist.createCatDialog">
+    tools:context="com.example.wonderlist.createCatDialog"
+    android:background="@color/colorFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -25,7 +26,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/title_dialog" />
+            android:text="@string/title_dialog"
+            android:textColor="@color/colorAccent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +39,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/title_cancel" />
+                android:text="@string/title_cancel"
+                android:background="@drawable/rounded_button"
+                android:layout_marginRight="10dp"/>
 
             <Button
                 android:id="@+id/setCatButton"
@@ -45,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/title_ok" />
+                android:text="@string/title_ok"
+                android:background="@drawable/rounded_button"/>
 
         </LinearLayout>
 

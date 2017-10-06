@@ -1,6 +1,7 @@
 package com.example.wonderlist;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -25,12 +26,9 @@ public class ItemAdapter extends BaseAdapter implements ListAdapter {
     private List items  = new ArrayList();
     private Context context;
     int position;
-    Random rand;
-    int color;
-    LinearLayout lay;
-    ItemDialog d;
-    FragmentActivity activity;
-    android.app.FragmentManager manager;
+    private ItemDialog d;
+    private FragmentActivity activity;
+    private android.app.FragmentManager manager;
 
     public ItemAdapter(List list, Context context){
         items = list;
@@ -67,6 +65,9 @@ public class ItemAdapter extends BaseAdapter implements ListAdapter {
         TextView title = (TextView) v.findViewById(R.id.catTitle);
         title.setText(items.get(i).toString());
         title.setTextSize(20);
+        Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/JosefinSans-Regular.ttf");
+        title.setTypeface(tf);
+        title.setTextSize(25);
 
         title.setOnClickListener(new View.OnClickListener(){
 
@@ -77,26 +78,7 @@ public class ItemAdapter extends BaseAdapter implements ListAdapter {
                 d.show(manager, "ItemDialog");
             }
         });
-        lay = (LinearLayout) v.findViewById(R.id.linearLayout);
 
-        rand = new Random();
-        color = rand.nextInt(5);
-
-        if(color==0){
-            lay.setBackgroundResource(R.drawable.item_border);
-        }
-        else if (color==1){
-            lay.setBackgroundResource(R.drawable.item_border2);
-        }
-        else if (color==2){
-            lay.setBackgroundResource(R.drawable.item_border3);
-        }
-        else if (color==3){
-            lay.setBackgroundResource(R.drawable.item_border4);
-        }
-        else {
-            lay.setBackgroundResource(R.drawable.item_border5);
-        }
 
         return v;
     }

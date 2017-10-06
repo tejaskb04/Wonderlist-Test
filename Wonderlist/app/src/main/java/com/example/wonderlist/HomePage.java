@@ -3,6 +3,7 @@ package com.example.wonderlist;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.audiofx.BassBoost;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,13 +33,15 @@ import java.util.List;
 
 public class HomePage extends AppCompatActivity implements createCatDialog.Communicator, DeleteWarningDialog.ItemCommunicator, EditCatDialog.itemEditor {
 
-    List categories = new ArrayList();
-    CatAdapter adapter;
-    ListView listView;
-    createCatDialog dialog;
-    Scanner scan;
+    private List categories = new ArrayList();
+    private CatAdapter adapter;
+    private ListView listView;
+    private createCatDialog dialog;
+    private Button newCatBut;
+    private Scanner scan;
     InputStream catList;
     FileWriter write;
+    private LinearLayout container;
 
 
 
@@ -67,8 +71,13 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setBackgroundColor(Color.parseColor("#DFD9CE"));
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        newCatBut = (Button) findViewById(R.id.newCatButton);
+        Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/JosefinSans-Bold.ttf");
+        newCatBut.setTypeface(tf);
+        newCatBut.setTextColor(Color.WHITE);
         listView = (ListView) findViewById(R.id.cat_list);
 
         //read categories in from file
@@ -107,7 +116,6 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     public void addCategory(String newTitle) throws IOException {
         categories.add(newTitle);
         adapter.notifyDataSetChanged();
-        updateCatFile(categories);
     }
 
     @Override
@@ -115,7 +123,6 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
         if (b){
             categories.remove(position);
             adapter.notifyDataSetChanged();
-            updateCatFile(categories);
         }
     }
 
@@ -123,16 +130,6 @@ public class HomePage extends AppCompatActivity implements createCatDialog.Commu
     public void changeItem(int pos, String newName) {
         categories.set(pos, newName);
         adapter.notifyDataSetChanged();
-        updateCatFile(categories);
     }
 
-    public void updateCatFile(List cats) {
-        try {
-            for(int i = 0; i < cats.size(); i++) {
-                write.write(cats.get(i).toString());
-            }
-            } catch (IOException e) {
-                e.printStackTrace();
-        }
-    }
 }

@@ -2,6 +2,7 @@ package com.example.wonderlist;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +15,13 @@ import android.widget.EditText;
  */
 
 public class EditCatDialog extends DialogFragment implements View.OnClickListener {
-    Button ok;
-    EditText edit;
+    private Button ok;
+    private EditText edit;
     String currentName;
     int pos;
     String newName;
-    itemEditor editor;
+    private itemEditor editor;
+    private Typeface tf, tfBold;
 
     public void onAttach(Activity activity){
         super.onAttach(activity);
@@ -29,8 +31,14 @@ public class EditCatDialog extends DialogFragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_edit_cat, null);
 
+        tf = Typeface.createFromAsset(getActivity().getApplicationContext().getAssets(), "fonts/JosefinSans-Regular.ttf");
+        tfBold = Typeface.createFromAsset(getActivity().getApplicationContext().getAssets(), "fonts/JosefinSans-Bold.ttf");
+
         ok = (Button) view.findViewById(R.id.ok_btn);
+        ok.setTypeface(tfBold);
         edit = (EditText) view.findViewById(R.id.editCat);
+        edit.setTypeface(tfBold);
+        edit.setTextSize(25);
         ok.setOnClickListener(this);
 
         edit.setText(currentName);
